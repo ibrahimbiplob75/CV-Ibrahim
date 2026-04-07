@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Ibrahim Biplob - Resume</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #e5e7eb;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: #fff;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    background: #1a2744;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-height: 54mm;
+  }
+  .photo-wrap {
+    width: 48mm;
+    min-height: 54mm;
+    background: #0e1a33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .photo-wrap img {
+    width: 36mm;
+    height: 36mm;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #c9a84c;
+  }
+  .photo-placeholder {
+    width: 36mm;
+    height: 36mm;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2d4070, #1a2744);
+    border: 3px solid #c9a84c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #c9a84c;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+  }
+  .header-info {
+    flex: 1;
+    padding: 14px 18px 14px 14px;
+  }
+  .header-info h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .header-info .designation {
+    font-size: 11pt;
+    color: #c9a84c;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 12px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8pt;
+    color: #c8d0e0;
+  }
+  .contact-item .label {
+    color: #c9a84c;
+    font-weight: 700;
+    min-width: 24px;
+    font-size: 7.5pt;
+  }
+  .contact-item a {
+    color: #7eb8f7;
+    text-decoration: none;
+  }
+
+  /* BODY LAYOUT */
+  .body-wrap {
+    display: flex;
+    min-height: calc(297mm - 54mm);
+  }
+  .sidebar {
+    width: 62mm;
+    background: #f0f3f8;
+    border-right: 2px solid #dce3ef;
+    padding: 14px 12px;
+    flex-shrink: 0;
+  }
+  .main {
+    flex: 1;
+    padding: 14px 16px;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #fff;
+    background: #1a2744;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-left: 4px solid #c9a84c;
+  }
+  .section-title-gold {
+    font-family: 'Merriweather', serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #1a2744;
+    background: #f5e9c8;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-left: 4px solid #c9a84c;
+  }
+
+  /* OBJECTIVE */
+  .objective-text {
+    font-size: 8pt;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  .objective-text strong {
+    color: #1a2744;
+  }
+
+  /* WORK EXP */
+  .exp-item {
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #dce3ef;
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-num {
+    display: inline-block;
+    background: #1a2744;
+    color: #c9a84c;
+    font-size: 7pt;
+    font-weight: 700;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 14px;
+    margin-right: 4px;
+    flex-shrink: 0;
+  }
+  .exp-title {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #1a2744;
+    text-decoration: underline;
+    text-decoration-color: #c9a84c;
+  }
+  .exp-badge {
+    display: inline-block;
+    background: #1a2744;
+    color: #c9a84c;
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .exp-desc {
+    font-size: 7.5pt;
+    color: #555;
+    margin-top: 2px;
+    margin-left: 18px;
+    line-height: 1.4;
+  }
+
+  /* PROJECTS */
+  .proj-item {
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #dce3ef;
+  }
+  .proj-item:last-child { border-bottom: none; }
+  .proj-title {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #1a2744;
+    text-decoration: underline;
+    text-decoration-color: #c9a84c;
+  }
+  .proj-tech {
+    font-size: 7pt;
+    color: #c9a84c;
+    font-weight: 700;
+    margin: 0 3px;
+  }
+  .proj-desc {
+    font-size: 7.5pt;
+    color: #555;
+    margin-top: 2px;
+    margin-left: 18px;
+    line-height: 1.4;
+  }
+  .admin-note {
+    font-size: 7pt;
+    color: #888;
+    margin-top: 2px;
+    margin-left: 18px;
+  }
+  .admin-note span { color: #c0392b; font-weight: 600; }
+
+  /* SIDEBAR SECTIONS */
+  .skill-category {
+    margin-bottom: 10px;
+  }
+  .skill-cat-title {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #1a2744;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #c9a84c;
+  }
+  .skill-tag {
+    display: inline-block;
+    background: #1a2744;
+    color: #e0e6f0;
+    font-size: 7pt;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin: 2px 2px 2px 0;
+    font-weight: 500;
+  }
+  .skill-tag-light {
+    display: inline-block;
+    background: #e8edf5;
+    color: #1a2744;
+    font-size: 7pt;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin: 2px 2px 2px 0;
+    font-weight: 600;
+    border: 1px solid #c5cfdf;
+  }
+
+  /* EDUCATION */
+  .edu-item {
+    margin-bottom: 8px;
+  }
+  .edu-degree {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #1a2744;
+  }
+  .edu-inst {
+    font-size: 7.5pt;
+    color: #444;
+    line-height: 1.4;
+  }
+  .edu-result {
+    font-size: 7pt;
+    color: #888;
+    margin-top: 1px;
+  }
+  .edu-result span { color: #c9a84c; font-weight: 700; }
+
+  /* ACHIEVEMENTS */
+  .achieve-item {
+    font-size: 7.5pt;
+    color: #333;
+    padding: 3px 0 3px 10px;
+    border-left: 2px solid #c9a84c;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  /* ACTIVITY */
+  .activity-item {
+    font-size: 7.5pt;
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+  .activity-dot {
+    width: 6px;
+    height: 6px;
+    background: #c9a84c;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  /* REFERENCES */
+  .ref-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .ref-card {
+    background: #f0f3f8;
+    border: 1px solid #dce3ef;
+    border-top: 3px solid #1a2744;
+    padding: 7px 8px;
+    border-radius: 2px;
+  }
+  .ref-name {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #1a2744;
+  }
+  .ref-role {
+    font-size: 7pt;
+    color: #888;
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+  .ref-contact {
+    font-size: 7pt;
+    color: #555;
+  }
+  .ref-relation {
+    font-size: 6.5pt;
+    color: #c9a84c;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  /* FOOTER */
+  .resume-footer {
+    background: #1a2744;
+    color: #a0b0c8;
+    text-align: center;
+    font-size: 7pt;
+    padding: 5px;
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; width: 210mm; min-height: 297mm; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="photo-wrap">
+      <div class="photo-placeholder">IB</div>
+    </div>
+    <div class="header-info">
+      <h1>Md Ibrahim Biplob</h1>
+      <div class="designation">Full Stack Web Developer</div>
+      <div class="contact-grid">
+        <div class="contact-item"><span class="label">📍</span> ATI Bazar, Keraniganj, Dhaka</div>
+        <div class="contact-item"><span class="label">📞</span> 01571286724, 01918926163</div>
+        <div class="contact-item"><span class="label">✉️</span> <a href="mailto:ibrahimbiplob75@gmail.com">ibrahimbiplob75@gmail.com</a></div>
+        <div class="contact-item"><span class="label">🔗</span> <a href="#">ibrahimbiplob75 (LinkedIn)</a></div>
+        <div class="contact-item"><span class="label">🐙</span> <a href="#">ibrahimbiplob75 (GitHub)</a></div>
+        <div class="contact-item"><span class="label">🌐</span> <a href="#">ibrahimbiplob.me</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body-wrap">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- SKILLS -->
+      <div class="section-title">Technical Skills</div>
+
+      <div class="skill-category">
+        <div class="skill-cat-title">Languages</div>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">Java</span>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-title">Frontend</div>
+        <span class="skill-tag-light">HTML5</span>
+        <span class="skill-tag-light">CSS3</span>
+        <span class="skill-tag-light">Tailwind</span>
+        <span class="skill-tag-light">Daisy UI</span>
+        <span class="skill-tag-light">React</span>
+        <span class="skill-tag-light">Next.js</span>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-title">Backend & DB</div>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express.js</span>
+        <span class="skill-tag">Laravel</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Firebase</span>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-title">DevOps & Tools</div>
+        <span class="skill-tag-light">Docker</span>
+        <span class="skill-tag-light">AWS (EC2, S3)</span>
+        <span class="skill-tag-light">GitHub CI/CD</span>
+        <span class="skill-tag-light">Vercel</span>
+        <span class="skill-tag-light">Render</span>
+        <span class="skill-tag-light">Linux (5 yrs)</span>
+        <span class="skill-tag-light">QA (1 yr)</span>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section-title" style="margin-top:10px;">Education</div>
+
+      <div class="edu-item">
+        <div class="edu-degree">BSc in CSE (2020–2025)</div>
+        <div class="edu-inst">National Institute of Textile Engineering & Research (NITER), Univ. of Dhaka</div>
+        <div class="edu-result">CGPA: <span>3.43</span> &nbsp;|&nbsp; Session: 2019–2020</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">HSC – Science (2019)</div>
+        <div class="edu-inst">Mohammadpur Govt. College</div>
+        <div class="edu-result">GPA: <span>4.08</span></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">SSC (2017)</div>
+        <div class="edu-inst">Gacha High School</div>
+        <div class="edu-result">GPA: <span>4.95</span></div>
+      </div>
+
+      <!-- ACTIVITIES -->
+      <div class="section-title" style="margin-top:10px;">Activities</div>
+      <div class="activity-item"><div class="activity-dot"></div><span>Campus Ambassador — Creative IT Institute</span></div>
+      <div class="activity-item"><div class="activity-dot"></div><span>University Team Leader — ICT Olympiad Bangladesh</span></div>
+      <div class="activity-item"><div class="activity-dot"></div><span>Senior Executive — NITER Islamic Society</span></div>
+      <div class="activity-item"><div class="activity-dot"></div><span>Senior Executive — NITER Computer Club</span></div>
+      <div class="activity-item"><div class="activity-dot"></div><span>Captain — CSE Football Team</span></div>
+      <div class="activity-item"><div class="activity-dot"></div><span>Member — Team Matrix-Niter</span></div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+      <!-- OBJECTIVE -->
+      <div class="section-title">Objective</div>
+      <p class="objective-text" style="margin-bottom:10px;">
+        As a passionate and motivated <strong>Software Developer</strong> currently working at <strong>RETINA</strong>, I have gained valuable hands-on experience in developing high-quality, user-friendly, and scalable web applications. Over the past twelve months, I have enhanced my technical expertise and teamwork skills by contributing to real-world projects in a collaborative IT environment. My goal is to continue growing as a full-stack developer, embracing new technologies, and contributing to innovative software solutions.
+      </p>
+
+      <!-- WORK EXPERIENCE -->
+      <div class="section-title">Professional Experience</div>
+      <div style="margin-bottom:10px;">
+
+        <div class="exp-item">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span class="exp-num">4</span>
+            <span class="exp-title">RETINA — Software Developer</span>
+            <span class="exp-badge">JUNE 2024 – Running</span>
+          </div>
+          <div class="exp-desc">Full-stack development of enterprise software solutions in a collaborative IT environment.</div>
+        </div>
+
+        <div class="exp-item">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span class="exp-num">7</span>
+            <span class="exp-title">Hardware & Sanitary Shop System</span>
+          </div>
+          <div class="exp-desc">Multi-user platform with real-time notifications, product management, receipt inventory, client site & payment integration.</div>
+        </div>
+
+        <div class="exp-item">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span class="exp-num">6</span>
+            <span class="exp-title">RMC Blood Management System</span>
+          </div>
+          <div class="exp-desc">Blood donation, request management, blood stock & inventory tracking with role-based access control.</div>
+        </div>
+
+        <div class="exp-item">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span class="exp-num">5</span>
+            <span class="exp-title">RESULT Management System</span>
+          </div>
+          <div class="exp-desc">Multi-branch result merge, ranking engine, SMS integration, and statistics analysis dashboard.</div>
+        </div>
+
+        <div class="exp-item">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span class="exp-num">3</span>
+            <span class="exp-title">Digital Aquaculture System</span>
+          </div>
+          <div class="exp-desc">MERN stack — Buyer, seller & fisher user control with full project management module.</div>
+        </div>
+
+        <div class="exp-item">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span class="exp-num">2</span>
+            <span class="exp-title">Retina Rajshahi Coaching</span>
+          </div>
+          <div class="exp-desc">MERN stack — Result file upload, update, delete, and student result view portal.</div>
+        </div>
+
+        <div class="exp-item">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span class="exp-num">1</span>
+            <span class="exp-title">Online Magazine Platform</span>
+          </div>
+          <div class="exp-desc">MERN stack — Magazine buy, sell & payment system developed for AI-Expert-Career.</div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section-title">Completed Projects</div>
+      <div class="admin-note" style="margin-left:0;margin-bottom:6px;">Admin access — Email: <span>admin@gmail.com</span> &nbsp;|&nbsp; Password: <span>*123Ab#</span></div>
+
+      <div class="proj-item">
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span class="exp-num">1</span>
+          <span class="proj-title">Tour Management with AI</span>
+          <span class="proj-tech">MongoDB · React · Express · Node.js</span>
+        </div>
+        <div class="proj-desc">Dynamic user posts, role management, ticket & hotel booking, payment gateway, Admin & Moderator control panels. <em>(Running)</em></div>
+      </div>
+
+      <div class="proj-item">
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span class="exp-num">2</span>
+          <span class="proj-title">Demo Restaurant</span>
+          <span class="proj-tech">MERN Stack</span>
+        </div>
+        <div class="proj-desc">Dynamic product management, cart system, checkout with payment integration, full Admin panel.</div>
+      </div>
+
+      <div class="proj-item">
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span class="exp-num">3</span>
+          <span class="proj-title">Demo Marketplace</span>
+          <span class="proj-tech">PHP · Laravel</span>
+        </div>
+        <div class="proj-desc">Admin panel, user panel, public website, dynamic product management, payment gateway, custom authentication, mail & SMS setup.</div>
+      </div>
+
+      <!-- ACHIEVEMENTS -->
+      <div class="section-title">Achievements & Awards</div>
+      <div style="margin-bottom:10px;">
+        <div class="achieve-item">🏆 ICPC Asia Dhaka Regional Contest — Rank 221st</div>
+        <div class="achieve-item">🥇 Gold Award — Achieving Sustainable Development Goals (SDGs) | UniV</div>
+        <div class="achieve-item">🌟 Best Campus Ambassador — Creative IT Institute</div>
+        <div class="achieve-item">🎖️ Best Performer — Web Development Seminar (Intra Campus)</div>
+        <div class="achieve-item">💻 Problem Solver — Codeforces, LeetCode, HackerRank</div>
+      </div>
+
+      <!-- REFERENCES -->
+      <div class="section-title">References</div>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-name">Umme Sara</div>
+          <div class="ref-role">Head, Dept. of Computer Science & Engineering, NITER</div>
+          <div class="ref-contact">📞 01882567003</div>
+          <div class="ref-contact">✉️ ummesara@niter.edu.bd</div>
+          <div class="ref-relation">Connection: Teacher</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Mohammad Sayduzzaman</div>
+          <div class="ref-role">Lecturer, Dept. of CSE, NITER</div>
+          <div class="ref-contact">📞 +880 1714030120</div>
+          <div class="ref-contact">✉️ msayduzzaman@niter.edu.bd</div>
+          <div class="ref-relation">Connection: Teacher</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="resume-footer">
+    Md Ibrahim Biplob &nbsp;·&nbsp; Full Stack Web Developer &nbsp;·&nbsp; ibrahimbiplob.me &nbsp;·&nbsp; ibrahimbiplob75@gmail.com
+  </div>
+
+</div>
+</body>
+</html>
