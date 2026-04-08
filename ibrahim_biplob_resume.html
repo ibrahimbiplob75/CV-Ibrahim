@@ -6,6 +6,7 @@
 <title>Md Ibrahim Biplob - Resume</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -103,6 +104,12 @@
     font-weight: 700;
     min-width: 24px;
     font-size: 7.5pt;
+  }
+  .contact-item .icon {
+    color: #c9a84c;
+    min-width: 16px;
+    text-align: center;
+    font-size: 8pt;
   }
   .contact-item a {
     color: #7eb8f7;
@@ -377,14 +384,43 @@
     letter-spacing: 0.5px;
   }
 
+  /* PRINT ACTION */
+  .print-button {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 9999;
+    background: #1a2744;
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(26, 39, 68, 0.24);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .print-button:hover {
+    background: #24355d;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(26, 39, 68, 0.28);
+  }
+  .print-button:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(26, 39, 68, 0.22);
+  }
+
   @media print {
-    body { background: white; padding: 0; }
+    body { background: white; padding: 0; display: block; }
+    .print-button { display: none !important; }
     .page { box-shadow: none; width: 210mm; min-height: 297mm; }
     @page { size: A4; margin: 0; }
   }
 </style>
 </head>
 <body>
+<button class="print-button" type="button" onclick="window.print()">Print / Save as PDF</button>
 <div class="page">
 
   <!-- HEADER -->
@@ -396,12 +432,12 @@
       <h1>Md Ibrahim Biplob</h1>
       <div class="designation">Full Stack Web Developer</div>
       <div class="contact-grid">
-        <div class="contact-item"><span class="label">📍</span> ATI Bazar, Keraniganj, Dhaka</div>
-        <div class="contact-item"><span class="label">📞</span> 01571286724, 01918926163</div>
-        <div class="contact-item"><span class="label">✉️</span> <a href="mailto:ibrahimbiplob75@gmail.com">ibrahimbiplob75@gmail.com</a></div>
-        <div class="contact-item"><span class="label">🔗</span> <a href="#">ibrahimbiplob75 (LinkedIn)</a></div>
-        <div class="contact-item"><span class="label">🐙</span> <a href="#">ibrahimbiplob75 (GitHub)</a></div>
-        <div class="contact-item"><span class="label">🌐</span> <a href="#">ibrahimbiplob.me</a></div>
+        <div class="contact-item"><i class="fa-solid fa-location-dot icon"></i> ATI Bazar, Keraniganj, Dhaka</div>
+        <div class="contact-item"><i class="fa-solid fa-phone icon"></i> 01571286724, 01918926163</div>
+        <div class="contact-item"><i class="fa-solid fa-envelope icon"></i> <a href="mailto:ibrahimbiplob75@gmail.com">ibrahimbiplob75@gmail.com</a></div>
+        <div class="contact-item"><i class="fa-brands fa-linkedin icon"></i> <a href="#">ibrahimbiplob75 (LinkedIn)</a></div>
+        <div class="contact-item"><i class="fa-brands fa-github icon"></i> <a href="#">ibrahimbiplob75 (GitHub)</a></div>
+        <div class="contact-item"><i class="fa-solid fa-globe icon"></i> <a href="#">ibrahimbiplob.me</a></div>
       </div>
     </div>
   </div>
@@ -628,5 +664,10 @@
   </div>
 
 </div>
+<script>
+  window.addEventListener('afterprint', function () {
+    document.body.classList.remove('printing');
+  });
+</script>
 </body>
 </html>
