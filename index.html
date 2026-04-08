@@ -384,6 +384,29 @@
     letter-spacing: 0.5px;
   }
 
+  .print-page-2 {
+    display: none;
+  }
+  .print-page-2-header,
+  .print-page-2-footer {
+    display: none;
+  }
+  .print-page-2-layout {
+    display: none;
+  }
+  .print-page-2-sidebar {
+    display: none;
+  }
+  .print-page-2-main {
+    display: none;
+  }
+  .print-quick-contact .contact-item {
+    color: #1a2744;
+  }
+  .print-quick-contact .icon {
+    color: #1a2744;
+  }
+
   /* PRINT ACTION */
   .print-button {
     position: fixed;
@@ -414,7 +437,59 @@
   @media print {
     body { background: white; padding: 0; display: block; }
     .print-button { display: none !important; }
-    .page { box-shadow: none; width: 210mm; min-height: 297mm; }
+    .print-header,
+    .print-footer { display: none !important; }
+    .screen-only-tail { display: none !important; }
+    .page {
+      box-shadow: none;
+      width: 210mm;
+      min-height: 297mm;
+    }
+    .print-page-2 {
+      display: flex;
+      flex-direction: column;
+      width: 210mm;
+      min-height: 297mm;
+      page-break-before: always;
+      break-before: page;
+      background: #fff;
+      overflow: hidden;
+    }
+    .print-page-2-header {
+      display: block;
+      height: 30px;
+      background: #1a2744;
+      border-bottom: 2px solid #c9a84c;
+      flex: 0 0 auto;
+    }
+    .print-page-2-layout {
+      display: flex;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+    .print-page-2-sidebar {
+      display: block;
+      width: 62mm;
+      background: #f0f3f8;
+      border-right: 2px solid #dce3ef;
+      padding: 14px 12px;
+      flex-shrink: 0;
+    }
+    .print-page-2-main {
+      display: block;
+      flex: 1 1 auto;
+      padding: 12px 16px 10px;
+    }
+    .print-page-2-footer {
+      display: block;
+      background: #1a2744;
+      color: #a0b0c8;
+      text-align: center;
+      font-size: 7pt;
+      padding: 5px;
+      letter-spacing: 0.5px;
+      flex: 0 0 auto;
+    }
     @page { size: A4; margin: 0; }
   }
 </style>
@@ -605,7 +680,7 @@
           <span class="proj-title">Tour Management with AI</span>
           <span class="proj-tech">MongoDB · React · Express · Node.js</span>
         </div>
-        <div class="proj-desc">Dynamic user posts, role management, ticket & hotel booking, payment gateway, Admin & Moderator control panels. <em>(Running)</em></div>
+        <div class="proj-desc">Built full booking workflow with package creation, tour guides, dynamic role management, secure payment gateway, analytics dashboard, and AI-assisted trip recommendation. <em>(Running)</em></div>
       </div>
 
       <div class="proj-item">
@@ -614,7 +689,7 @@
           <span class="proj-title">Demo Restaurant</span>
           <span class="proj-tech">MERN Stack</span>
         </div>
-        <div class="proj-desc">Dynamic product management, cart system, checkout with payment integration, full Admin panel.</div>
+        <div class="proj-desc">Implemented menu/catalog management, real-time cart updates, coupon and discount logic, order lifecycle tracking, checkout flow, and complete Admin operations panel.</div>
       </div>
 
       <div class="proj-item">
@@ -623,10 +698,99 @@
           <span class="proj-title">Demo Marketplace</span>
           <span class="proj-tech">PHP · Laravel</span>
         </div>
-        <div class="proj-desc">Admin panel, user panel, public website, dynamic product management, payment gateway, custom authentication, mail & SMS setup.</div>
+        <div class="proj-desc">Developed seller and buyer modules, product catalog with search/filter, order and payment processing, custom authentication, email/SMS notification system, and admin reporting.</div>
       </div>
 
-      <!-- ACHIEVEMENTS -->
+      <div class="proj-item">
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span class="exp-num">4</span>
+          <span class="proj-title">University Management System</span>
+          <span class="proj-tech">MERN Stack · RBAC</span>
+        </div>
+        <div class="proj-desc">Integrated dynamic role system with separate Student, Teacher, and Admin panels; included course registration, attendance, result publishing, semester billing, notices, and departmental workflows.</div>
+      </div>
+
+      <div class="proj-item">
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span class="exp-num">5</span>
+          <span class="proj-title">Enterprise HR & Operations Suite</span>
+          <span class="proj-tech">React · Node.js · PostgreSQL</span>
+        </div>
+        <div class="proj-desc">Designed internal company operations platform with employee profile management, leave workflow, payroll-ready reports, task tracking, role-based access control, and audit-friendly activity logs.</div>
+      </div>
+
+      <div class="screen-only-tail">
+        <!-- ACHIEVEMENTS -->
+        <div class="section-title">Achievements & Awards</div>
+        <div style="margin-bottom:10px;">
+          <div class="achieve-item">🏆 ICPC Asia Dhaka Regional Contest — Rank 221st</div>
+          <div class="achieve-item">🥇 Gold Award — Achieving Sustainable Development Goals (SDGs) | UniV</div>
+          <div class="achieve-item">🌟 Best Campus Ambassador — Creative IT Institute</div>
+          <div class="achieve-item">🎖️ Best Performer — Web Development Seminar (Intra Campus)</div>
+          <div class="achieve-item">💻 Problem Solver — Codeforces, LeetCode, HackerRank</div>
+        </div>
+
+        <!-- REFERENCES -->
+        <div class="section-title">References</div>
+        <div class="ref-grid">
+          <div class="ref-card">
+            <div class="ref-name">Umme Sara</div>
+            <div class="ref-role">Head, Dept. of Computer Science & Engineering, NITER</div>
+            <div class="ref-contact">📞 01882567003</div>
+            <div class="ref-contact">✉️ ummesara@niter.edu.bd</div>
+            <div class="ref-relation">Connection: Teacher</div>
+          </div>
+          <div class="ref-card">
+            <div class="ref-name">Mohammad Sayduzzaman</div>
+            <div class="ref-role">Lecturer, Dept. of CSE, NITER</div>
+            <div class="ref-contact">📞 +880 1714030120</div>
+            <div class="ref-contact">✉️ msayduzzaman@niter.edu.bd</div>
+            <div class="ref-relation">Connection: Teacher</div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="resume-footer">
+          Md Ibrahim Biplob &nbsp;·&nbsp; Full Stack Web Developer &nbsp;·&nbsp; ibrahimbiplob.me &nbsp;·&nbsp; ibrahimbiplob75@gmail.com
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="print-page-2">
+  <div class="print-page-2-header"></div>
+  <div class="print-page-2-layout">
+    <div class="print-page-2-sidebar">
+      <div class="section-title">More About Me</div>
+      <div class="objective-text" style="font-size:7.5pt; margin-bottom:10px;">
+        Full-stack developer, footballer, and quick learner. Skilled in prompt engineering and currently contributing as Lead Software Engineer at Intellisoft Company.
+      </div>
+
+      <div class="section-title">Quick Contact</div>
+      <div class="print-quick-contact">
+        <div class="contact-item" style="font-size:7.2pt; margin-bottom:4px;"><i class="fa-solid fa-location-dot icon"></i> ATI Bazar, Keraniganj, Dhaka</div>
+        <div class="contact-item" style="font-size:7.2pt; margin-bottom:4px;"><i class="fa-solid fa-phone icon"></i> 01571286724</div>
+        <div class="contact-item" style="font-size:7.2pt; margin-bottom:4px;"><i class="fa-solid fa-envelope icon"></i> ibrahimbiplob75@gmail.com</div>
+      </div>
+
+      <div class="section-title">Core Stack</div>
+      <div class="skill-category" style="margin-bottom:8px;">
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Laravel</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">GitHub</span>
+      </div>
+
+      <div class="section-title">Summary</div>
+      <div class="objective-text" style="font-size:7.5pt;">
+        Builds user-friendly, responsive, and production-ready software products.
+      </div>
+    </div>
+
+    <div class="print-page-2-main">
       <div class="section-title">Achievements & Awards</div>
       <div style="margin-bottom:10px;">
         <div class="achieve-item">🏆 ICPC Asia Dhaka Regional Contest — Rank 221st</div>
@@ -636,7 +800,6 @@
         <div class="achieve-item">💻 Problem Solver — Codeforces, LeetCode, HackerRank</div>
       </div>
 
-      <!-- REFERENCES -->
       <div class="section-title">References</div>
       <div class="ref-grid">
         <div class="ref-card">
@@ -654,15 +817,11 @@
           <div class="ref-relation">Connection: Teacher</div>
         </div>
       </div>
-
     </div>
   </div>
-
-  <!-- FOOTER -->
-  <div class="resume-footer">
+  <div class="print-page-2-footer">
     Md Ibrahim Biplob &nbsp;·&nbsp; Full Stack Web Developer &nbsp;·&nbsp; ibrahimbiplob.me &nbsp;·&nbsp; ibrahimbiplob75@gmail.com
   </div>
-
 </div>
 <script>
   window.addEventListener('afterprint', function () {
